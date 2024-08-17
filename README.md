@@ -8,7 +8,6 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 ### Narrative:
 
-<details>
 <summary> check </summary>
 
 ```python
@@ -94,7 +93,7 @@ class TaskTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
     ```
-</details>
+
 ### [Old Artifact](Engineering.md)
         
              
