@@ -1,6 +1,6 @@
 <!-- (Github basic writing and formatting syntax, n.d.; pierrejoubert73, 2024) -->
 
-[Go Back](readme.md)
+[Go Back](README.md)
 
 # Software Development and Engineering
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Software%20Design%20and%20Engineering)
