@@ -5,8 +5,8 @@
 ## Click to navigate:
 ### [Old Artifact](#old-artifact)
 
-## Old Artifact (CS 340 Artifact Without Enhancements):
-### Appointment Services:
+# Old Artifact (CS 340 Artifact Without Enhancements):
+## Appointment Services:
 
 ### Appointment.java
 
@@ -300,7 +300,7 @@ class AppointmentServiceTest {
 }
 ```
 
-### Contact Services:
+## Contact Services:
 
 ### Contact.java
 
@@ -812,7 +812,7 @@ class ContactServiceTest {
 }
 ```
 
-### Task Services:
+## Task Services:
 
 ### Task.java
 
@@ -1130,8 +1130,8 @@ class TaskServiceTest {
 }
 ```
 
-## New Artifact:
-### Appointment Service
+# New Artifact:
+## Appointment Service
 
 ### Appointment.py
 
@@ -1510,7 +1510,7 @@ if __name__== '__main__':
 ```
 
 
-### Contact Service
+## Contact Service
 
 ### Contact.py </summary>
 
@@ -2007,7 +2007,7 @@ if __name__== '__main__':
     unittest.main()
 ```
 
-### Task Service
+## Task Service
 
 ### Task.py
 
