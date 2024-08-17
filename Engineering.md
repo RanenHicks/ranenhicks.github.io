@@ -1,4 +1,4 @@
-<<!-- (Github basic writing and formatting syntax, n.d.; pierrejoubert73, 2024) -->>
+<!-- (Github basic writing and formatting syntax, n.d.; pierrejoubert73, 2024) -->
 # Software Development and Engineering
 ## Old Artifact:
 
