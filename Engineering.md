@@ -5,9 +5,10 @@
 # Software Development and Engineering
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Software%20Design%20and%20Engineering)
 
-## Click to navigate:
-### [Old Artifact (CS 340 Artifact Without Enhancements)](#old-artifact)
-### [New Artifact (CS-499 Software Design and Engineering Enhancement)](#new-artifact)
+# Click to Navigate:
+## [Old Artifact (CS 340 Artifact Without Enhancements)](#old-artifact)
+
+## [New Artifact (CS-499 Software Design and Engineering Enhancement)](#new-artifact)
 
 # Old Artifact:
 ## Appointment Service:
