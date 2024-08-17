@@ -3,11 +3,11 @@
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Software%20Design%20and%20Engineering)
 
 ## Click to navigate:
-### [Old Artifact](#old-artifact)
-### [New Artifact](#new-artifact)
+### [Old Artifact (CS 340 Artifact Without Enhancements)](#old-artifact)
+### [New Artifact (CS-499 Software Design and Engineering)](#new-artifact)
 
-# Old Artifact (CS 340 Artifact Without Enhancements):
-## Appointment Services:
+# Old Artifact:
+## Appointment Service:
 
 ### Appointment.java
 
@@ -301,7 +301,7 @@ class AppointmentServiceTest {
 }
 ```
 
-## Contact Services:
+## Contact Service:
 
 ### Contact.java
 
@@ -813,7 +813,7 @@ class ContactServiceTest {
 }
 ```
 
-## Task Services:
+## Task Service:
 
 ### Task.java
 
@@ -1131,7 +1131,7 @@ class TaskServiceTest {
 }
 ```
 
-# New Artifact(CS-499 Software Design and Engineering):
+# New Artifact:
 ## Appointment Service
 
 ### Appointment.py
