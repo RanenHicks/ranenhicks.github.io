@@ -18,7 +18,7 @@
 [Back to Top](#dogjava-1)
 [Monkey.java](#monkeyjava-1)
 
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 # Old Artifact:
 
 ### Driver.java
@@ -396,7 +396,7 @@ public class Driver {
 }
 ```
 
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 ### RescueAnimal.java
 ```java
 
@@ -526,7 +526,7 @@ public class RescueAnimal {
 }
 ```
 
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 ### Dog.java
 ```java
 
@@ -565,7 +565,7 @@ public class Dog extends RescueAnimal {
 }
 ```
 
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 ### Monkey.java
 ```java
 
@@ -647,7 +647,7 @@ public class Monkey extends RescueAnimal {
 	}
 }
 ```
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 # New Artifact:
 
 ### Driver.java
@@ -1336,7 +1336,7 @@ class newKeyFunction {
 }
 ```
 
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 ### RescueAnimal.java
 ```java
 
@@ -1464,7 +1464,7 @@ public class RescueAnimal {
 }
 ```
 
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 ### Dog.java
 ```java
 
@@ -1503,7 +1503,7 @@ public class Dog extends RescueAnimal {
 }
 ```
 
-[Back to Top](#alorithms-and-data-structures)
+[Back to Top](#click-to-navigate)
 ### Monkey.java
 ```java
 
