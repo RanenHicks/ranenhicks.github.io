@@ -8,6 +8,8 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 ### Old:
 
 ### Updated:
+
+```python
 import datetime
 
 # Declaring variables, removing magic numbers
@@ -119,7 +121,7 @@ class Appointment:
           self.appointmentId = None
           self.appointmentDate = None
           self.appointmentDescription = None
-          
+```  
         
         
              
