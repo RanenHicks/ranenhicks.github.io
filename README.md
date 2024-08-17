@@ -11,7 +11,8 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
         
              
 
-## Artifact 2: Algorithms and Datastructures
+## [Artifact 2: Algorithms and Datastructures](Algorithms.md)
+
 ### [Narrative](https://docs.google.com/document/d/1NSoZREICZDcPIcjU1PmuWKeQBmi3bMAs/edit?usp=sharing&ouid=114962371169660708666&rtpof=true&sd=true)
 
 ## Artifact 3: Databases
