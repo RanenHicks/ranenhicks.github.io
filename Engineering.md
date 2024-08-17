@@ -3,7 +3,6 @@
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Software%20Design%20and%20Engineering)
 
 ## Old Artifact:
-
 ### Appointment Services:
 <details>
   <summary> Appointment.java </summary>
@@ -1143,3 +1142,26 @@ class TaskServiceTest {
 </details>
 
 ## New Artifact:
+### Appointment
+<details>
+	<summary> </summary>
+</details>
+<details>
+	<summary> </summary>
+</details>
+<details>
+	<summary> </summary>
+</details>
+<details>
+	<summary> </summary>
+</details>
+<details>
+	<summary> </summary>
+</details>
+<details>
+	<summary> </summary>
+</details>
+<details>
+	<summary> </summary>
+</details>
+
