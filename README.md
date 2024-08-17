@@ -8,10 +8,11 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 ### Narrative:
 
-```python
 <details>
 <summary> check </summary>
-    
+
+```python
+
 import unittest
 from Task import Task
 import datetime
