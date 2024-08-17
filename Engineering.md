@@ -1,4 +1,4 @@
-<!-- (Github basic writing and formatting syntax, n.d.; jonikarppinen, 2019; Mendelssohn, 2022) -->
+<!-- (Github basic writing and formatting syntax, n.d.; jonikarppinen, 2019; Mendelssohn, 2022; Adding content to your GitHub Pages site using Jekyll, n.d.) -->
 
 [Go Back](README.md)
 
