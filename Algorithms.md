@@ -7,16 +7,16 @@
 
 # Click to Navigate:
 ## [Old Artifact (IT-145 Artifact Without Enchancements)](#old-artifact)
-[Driver.java](#driverjava)
-[RescueAnimal.java](#rescueanimaljava)
-[Back to Top](#dogjava)
-[Monkey.java](#monkeyjava)
+* [Driver.java](#driverjava)
+* [RescueAnimal.java](#rescueanimaljava)
+* [Back to Top](#dogjava)
+* [Monkey.java](#monkeyjava)
 
 ## [New Artifact (CS-499 Algorithms and Data Structures Enhancement)](#new-artifact)
-[Driver.java](#driverjava-1)
-[RescueAnimal.java](#rescueanimaljava-1)
-[Back to Top](#dogjava-1)
-[Monkey.java](#monkeyjava-1)
+* [Driver.java](#driverjava-1)
+* [RescueAnimal.java](#rescueanimaljava-1)
+* [Back to Top](#dogjava-1)
+* [Monkey.java](#monkeyjava-1)
 
 [Back to Top](#click-to-navigate)
 # Old Artifact:
