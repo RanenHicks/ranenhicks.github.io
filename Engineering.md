@@ -5,7 +5,7 @@
 ## Click to navigate:
 ### [Old Artifact](#old-artifact)
 
-## Old Artifact:
+## Old Artifact (CS 340 Artifact Without Enhancements):
 ### Appointment Services:
 
 ### Appointment.java
