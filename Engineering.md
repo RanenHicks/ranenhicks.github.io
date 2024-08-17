@@ -1260,70 +1260,1215 @@ class Appointment:
 	<summary> AppointmentTest.py </summary>
 
 ```python
+import unittest
+from Appointment import Appointment
+import datetime
+
+class AppointmentTests (unittest.TestCase):
+
+    # Test with all information correct
+    def testAppointmentAllCorrect(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises appointment
+        checkAppointment = Appointment(None, None, None, True)
+        checkAppointment.Appointment("1", datetime.date(2025, 1, 1), "1")
+    
+        # Checks appointment information
+        self.assertEqual(checkAppointment.getAppointmentId(), "1")
+        self.assertEqual(checkAppointment.getAppointmentDate(), datetime.date(2025, 1, 1))
+        self.assertEqual(checkAppointment.getAppointmentDescription(), "1")
+        self.assertTrue(checkAppointment.addedCorrectly)
+
+
+    # Appointment id tests
+    def testAppointmentIdLong(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises appointment
+        checkAppointment = Appointment(None, None, None, True)
+
+        # Checks if appointment was not added
+        self.assertFalse(checkAppointment.Appointment("11111111111", datetime.date(2025, 1, 1), "1").addedCorrectly)
+
+
+    def testAppointmentIdNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises appointment
+        checkAppointment = Appointment(None, None, None, True)
+
+        # Checks if appointment was not added
+        self.assertFalse(checkAppointment.Appointment(None, datetime.date(2025, 1, 1), "1").addedCorrectly)
+
+
+    # Appointment date tests
+    def testAppointmentDateBeforeCurrent(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises appointment
+        checkAppointment = Appointment(None, None, None, True)
+
+        # Checks if appointment was not added
+        self.assertFalse(checkAppointment.Appointment("1", datetime.date(2023, 1, 1), "1").addedCorrectly)
+
+
+    def testAppointmentDateNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises appointment
+        checkAppointment = Appointment(None, None, None, True)
+
+        # Checks if appointment was not added
+        self.assertFalse(checkAppointment.Appointment("1", None, "1").addedCorrectly)
+
+
+    # Appointment description test
+    def testAppointmentDescriptionLong(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises appointment
+        checkAppointment = Appointment(None, None, None, True)
+
+        # Checks for addition of appointment
+        self.assertFalse(checkAppointment.Appointment("1", datetime.date(2025, 1, 1), (51 * "1")).addedCorrectly)
+
+
+    def testAppointmentDescriptionNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises appointment
+        checkAppointment = Appointment(None, None, None, True)
+
+       # Checks for addition of appointment
+        self.assertFalse(checkAppointment.Appointment("1", datetime.date(2025, 1, 1), None).addedCorrectly)
+ 
+        
+# Calls the unit tests
+if __name__== '__main__':
+    unittest.main()
 ```
 </details>
 <details>
 	<summary> AppointmentService.py </summary>
 
 ```python
+from Appointment import Appointment
+
+# Declaring variables, removing magic numbers
+STORESAPPOINTMENT = 1
+
+class AppointmentService:
+
+    # Citation for self usage: (Gyanendra371, 2024)
+
+    # (Erakshaya485, 2024), initializes the class.
+    def __init__(self, addAppointment, deleteAppointment, appointmentList, appointmentId, appointmentDate, appointmentDescription):
+        if addAppointment == None:
+            return
+        
+        self.AppointmentService(addAppointment, deleteAppointment, appointmentList, appointmentId, appointmentDate, appointmentDescription)
+
+    # Main appointment service function
+    def AppointmentService(self, addAppointment, deleteAppointment, appointmentList, appointmentId, appointmentDate, appointmentDescription):
+
+        self.added = False
+        self.deleted = False
+        appointmentExists = False
+
+        if len(appointmentList) >= STORESAPPOINTMENT:
+
+            # Checks if an appointment already exists with input id.
+            for incrementAppointmentList in appointmentList:
+                if appointmentId == incrementAppointmentList.getAppointmentId():
+                    appointmentExists = True
+        
+                else:
+                    appointmentExists = False
+        
+        # Adding appointment
+        if addAppointment == True:
+            confirmationAppointment = self.addingAppointment(addAppointment, appointmentExists, appointmentId, appointmentDate, appointmentDescription)
+
+            return confirmationAppointment
+
+        # Deleting appointment
+        if deleteAppointment == True:
+            self.deletingAppointment(deleteAppointment, appointmentExists, appointmentList, appointmentId)
+                
+
+
+    # Adds an appointment
+    def addingAppointment(self, addAppointment, appointmentExists, appointmentId, appointmentDate, appointmentDescription): 
+        
+        # (Kalra, 2023; Everythingtech, 2023), initializing new appointment
+        newAppointment = Appointment(None, None, None, True)
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), adding appointment with error checking
+        try:
+            if (addAppointment == True) and (appointmentExists == False):
+                newAppointment.Appointment(appointmentId, appointmentDate, appointmentDescription)
+                if newAppointment.addedCorrectly == False:
+                    self.added = False
+                    return
+                else:
+                    self.added = True
+                    return newAppointment
+        
+        # User incorrect id error check
+            elif (addAppointment == True) and (appointmentExists == True):
+                raise Exception
+        except:
+            self.added = False
+            print("Appointment with input id has already been made, please use another id.")
+
+        
+    # Deletes an appointment.
+    def deletingAppointment(self, deleteAppointment, appointmentExists, appointmentList, appointmentId): 
+        
+        # Variable to iterate through appointment list to find location of same appointment
+        sameAppointmentId = 0
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), deleting appointment with error checking
+        try:
+            if (deleteAppointment == True) and (appointmentExists == True):
+                for incrementAppointmentList in appointmentList:
+                    if appointmentId == incrementAppointmentList.getAppointmentId():
+                        appointmentDelete = appointmentList.pop(sameAppointmentId)
+                        appointmentDelete.deleteAppointmentInfo()
+                        appointmentDelete = None
+                        self.deleted = True
+                
+                    # Adds one after if statment since the list can store at [0]
+                    sameAppointmentId += 1
+
+            # User inccorect id error check
+            elif (deleteAppointment == True) and (appointmentExists == False):
+                raise Exception
+        except:
+                self.deleted = False
+                print("Appointment with input id does not exist, can not delete.")
 ```
 </details>
 <details>
 	<summary> AppointmentServiceTest.py </summary>
 
 ```python
+import unittest
+from Appointment import Appointment
+from AppointmentService import AppointmentService
+import datetime
+
+class AppointmentTests (unittest.TestCase):
+
+    # Appointment Service add tests
+    def testAppointmentServiceAddCorrect(self):
+        
+        # Initializing empty list for test
+        checkAppointmentList = []
+
+        # # (Kalra, 2023; Everythingtech, 2023), initializing and entering correct info into the appointment service
+        checkAppointmentServices = AppointmentService(None, None, None, None, None, None)
+        checkAppointmentServices.AppointmentService(True, False, checkAppointmentList, "1", datetime.date(2025, 1, 1), "1")
+        
+        # Checks added variable to see if addition happened
+        self.assertEqual(checkAppointmentServices.added, True)
+    
+    def testAppointmentServiceAddIdIncorrect(self):
+        
+        # Creating appointment test list
+        checkAppointmentList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing appointment and stores it
+        checkAppointment = Appointment(None, None, None, True)
+        checkAppointment.Appointment("1", datetime.date(2025, 1, 1), "1")
+        checkAppointmentList.append(checkAppointment) 
+
+        # Initializes appointment services
+        checkAppointmentServices = AppointmentService(None, None, checkAppointmentList, None, None, None)
+        
+        # Inputs incorrect addition information into appointment services
+        checkAppointmentServices.AppointmentService(True, False, checkAppointmentList, "1", datetime.date(2025, 1, 1), "1")
+        
+        # Checks added variable to see if addition happened
+        self.assertFalse(checkAppointmentServices.added)
+
+    
+    # Delete tests
+    def testAppointmentServiceDeleteCorrect(self):
+        
+        # Creating appointment test list
+        checkAppointmentList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing appointment and stores it
+        checkAppointment = Appointment(None, None, None, True)
+        checkAppointment.Appointment("1", datetime.date(2025, 1, 1), "1")
+        checkAppointmentList.append(checkAppointment) 
+
+        # Initializes appointment services and inputs correct deletion information
+        checkAppointmentServices = AppointmentService(None, None, checkAppointmentList, None, None, None)
+        checkAppointmentServices.AppointmentService(False, True, checkAppointmentList, "1", None, None)
+        
+        # Checks added variable to see if deletion happened
+        self.assertEqual(checkAppointmentServices.deleted, True)
+
+    def testAppointmentServiceDeleteIdIncorrect(self):
+        
+        # Creating appointment test list
+        checkAppointmentList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), initializes appointment services
+        checkAppointmentServices = AppointmentService(None, None, checkAppointmentList, None, None, None)
+        
+        # Inputs incorrect deletion information and checks for non-deletion
+        checkAppointmentServices.AppointmentService(False, True, checkAppointmentList, "2", None, None)
+        self.assertFalse(checkAppointmentServices.deleted)
+
+
+# Starts unit tests        
+if __name__== '__main__':
+    unittest.main()
 ```
 </details>
 
 ### Contact Service
 <details>
-	<summary> </summary>
+	<summary> Contact.py </summary>
 
 ```python
+# Declaring variables, removing magic numbers
+CONTACTIDNAMEPHONEMAX = 10
+CONTACTADDRESSMAX = 30
+
+
+class Contact:
+
+    # Citation for self usage: (Gyanendra371, 2024)
+
+    # (Erakshaya485, 2024), initializing contact object
+    def __init__(self, newContactId, newContactFirstName, newContactLastName, newContactPhone, newContactAddress, newContactInstantce): 
+        if newContactInstantce == True:
+            return
+        
+        self.Contact(newContactId, newContactFirstName, newContactLastName, newContactPhone, newContactAddress)
+
+    def Contact(self, newContactId, newContactFirstName, newContactLastName, newContactPhone, newContactAddress):
+
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), contact id being set, and error checking.
+        try:
+            if len(newContactId) <= CONTACTIDNAMEPHONEMAX:
+                self.addedCorrectly = True
+                self.contactId = newContactId
+
+            # Too Long of id
+            elif len(newContactId) > CONTACTIDNAMEPHONEMAX:
+                print("Contact id is too long, please keep it to 10 characters or less.")
+                raise Exception
+            
+            # Null Id
+            elif newContactId == None:
+                print("Contact id is null, please enter an id.")
+                raise Exception
+            
+        except:
+             self.addedCorrectly = False
+        
+        # Calls functions to set input other information.
+        self.setContactFirstName(newContactFirstName)
+        self.setContactLastName(newContactLastName)
+        self.setContactPhone(newContactPhone)
+        self.setContactAddress(newContactAddress)
+
+        # Returns object
+        return self 
+
+
+
+    # Setters and getters
+    def getContactId(self):
+          return self.contactId
+    
+    def getContactFirstName(self):
+        return self.contactFirstName
+
+    def setContactFirstName(self, newContactFirstname):
+        try:
+            if len(newContactFirstname) <= CONTACTIDNAMEPHONEMAX:
+                self.contactFirstName = newContactFirstname
+                # First Name is too big
+            elif len(newContactFirstname) > CONTACTIDNAMEPHONEMAX:
+                print("Contact first name is too big, please try again.")
+                raise Exception
+                
+            # Null first name input
+            elif newContactFirstname == None:
+                print("Contact first name is empty, please try again.")
+                raise Exception
+        except:
+            self.addedCorrectly = False # Flags incorrect data
+        
+    def getContactLastName(self):
+        return self.contactLastName
+
+    def setContactLastName(self, newContactLastname):
+        try:
+            if len(newContactLastname) <= CONTACTIDNAMEPHONEMAX:
+                self.contactLastName = newContactLastname
+                # Last name is too big
+            elif len(newContactLastname) > CONTACTIDNAMEPHONEMAX:
+                print("Contact first name is too big, please try again.")
+                raise Exception
+                
+            # Null last name input
+            elif newContactLastname == None:
+                print("Contact first name is empty, please try again.")
+                raise Exception
+        
+        except:
+            self.addedCorrectly = False # Flags incorrect data
+        
+
+    def getContactPhone(self):
+          return self.contactPhone
+    
+    def setContactPhone(self, newContactPhone):
+
+        
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), Sets contact date if is valid.
+        try:
+            if len(newContactPhone) == CONTACTIDNAMEPHONEMAX:
+                self.contactPhone = newContactPhone
+            
+            # Phone number is too big
+            elif len(newContactPhone) > CONTACTIDNAMEPHONEMAX:
+                print("Contact phone number is too big, please try again.")
+                raise Exception
+            
+            # Phone number is too small
+            elif len(newContactPhone) < CONTACTIDNAMEPHONEMAX:
+                print("Contact phone number is too small, please try again.")
+                raise Exception
+            
+            # Null phone number input
+            elif newContactPhone == None:
+                print("Contact phone number is empty, please try again.")
+                raise Exception
+        except:
+             self.addedCorrectly = False # Flags incorrect data
+                
+            
+
+    def getContactAddress(self):
+          return self.contactAddress
+    
+    def setContactAddress(self, newContactAddress):
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), contact address being set as well as error checking.
+        try:
+            if len(newContactAddress) <= CONTACTADDRESSMAX:
+                self.contactAddress = newContactAddress
+
+            # Address too long
+            elif len(newContactAddress) > CONTACTADDRESSMAX:
+                print("Contact address is too long, please keep it to 30 characters or less.")
+                raise Exception
+            
+            # Null address input
+            elif newContactAddress.equals(None):
+                print(("Contact address is null, please enter an address."))
+                raise Exception
+        except:
+            self.addedCorrectly = False # Flags incorrect data
+    
+    # Function deletes information stored within object
+    def deleteContactInfo(self):
+          self.contactId = None
+          self.contactFirstName = None
+          self.contactLastName = None
+          self.contactPhone = None
+          self.contactAddress = None
+    
+    # Function updates information within object.
+    def updateContactInfo(self, newContactFirstName, newContactLastName, newContactPhone, newContactAddress):
+        self.contactPhone = self.setContactFirstName(newContactFirstName)
+        self.contactAddress = self.setContactLastName(newContactLastName)
+        self.contactPhone = self.setContactPhone(newContactPhone)
+        self.contactAddress = self.setContactAddress(newContactAddress)
 ```
 </details>
 <details>
-	<summary> </summary>
+	<summary> ContactTest.py </summary>
 
 ```python
+import unittest
+from Contact import Contact
+
+class ContactTests (unittest.TestCase):
+
+    # Test with all information correct
+    def testContactAllCorrect(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+        checkContact.Contact("1", "1", "1", "1111111111", "1")
+    
+        # Checks Contact information
+        self.assertEqual(checkContact.getContactId(), "1")
+        self.assertEqual(checkContact.getContactFirstName(), "1")
+        self.assertEqual(checkContact.getContactLastName(), "1")
+        self.assertEqual(checkContact.getContactPhone(), "1111111111")
+        self.assertEqual(checkContact.getContactAddress(), "1")
+        self.assertTrue(checkContact.addedCorrectly)
+
+
+    # Contact id tests
+    def testContactIdLong(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+
+        # Checks if Contact was not added
+        self.assertFalse(checkContact.Contact("11111111111", "1", "1", "1111111111", "1").addedCorrectly)
+
+
+    def testContactIdNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+
+        # Checks if Contact was not added
+        self.assertFalse(checkContact.Contact(None, "1", "1", "1111111111", "1").addedCorrectly)
+
+
+    # Contact date tests
+    def testContactPhoneSmall(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+
+        # Checks if Contact was not added
+        self.assertFalse(checkContact.Contact("1", "1", "1", "111111111", "1").addedCorrectly)
+    
+    def testContactPhoneBig(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+
+        # Checks if Contact was not added
+        self.assertFalse(checkContact.Contact("1", "1", "1", "11111111111", "1").addedCorrectly)
+
+
+    def testContactPhoneNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+
+        # Checks if Contact was not added
+        self.assertFalse(checkContact.Contact("1", "1", "1", None, "1").addedCorrectly)
+
+
+    # Contact description test
+    def testContactAddressLong(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+
+        # Checks for addition of Contact
+        self.assertFalse(checkContact.Contact("1", "1", "1", "1111111111", (51 * "1")).addedCorrectly)
+
+
+    def testContactAddressNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Contact
+        checkContact = Contact(None, None, None, None, None, True)
+
+       # Checks for addition of Contact
+        self.assertFalse(checkContact.Contact("1", "1", "1", "1111111111", None).addedCorrectly)
+ 
+        
+# Calls the unit tests
+if __name__== '__main__':
+    unittest.main()
 ```
 </details>
 <details>
-	<summary> </summary>
+	<summary> ContactService.py </summary>
 
 ```python
+from Contact import Contact
+
+# Declaring variables, removing magic numbers
+STORESTASK = 1
+
+class ContactService:
+
+    # Citation for self usage: (Gyanendra371, 2024)
+
+    # (Erakshaya485, 2024), initializes the class.
+    def __init__(self, addContact, deleteContact, updateContact, contactList, contactId, contactFirstName, contactLastName, contactPhone, contactDescription):
+        if addContact == None:
+            return
+        
+        self.ContactService(addContact, deleteContact, updateContact, contactList, contactId, contactFirstName, contactLastName, contactPhone, contactDescription)
+
+    # Main contact service function
+    def ContactService(self, addContact, deleteContact, updateContact, contactList, contactId, contactFirstName, contactLastName, contactPhone, contactDescription):
+
+        self.added = False
+        self.deleted = False
+        self.updated = False
+        contactExists = False
+
+        if len(contactList) >= STORESTASK:
+
+            # Checks if an contact already exists with input id.
+            for incrementContactList in contactList:
+                if contactId == incrementContactList.getContactId():
+                    contactExists = True
+        
+                else:
+                    contactExists = False
+        
+        # Adding contact
+        if addContact == True:
+            confirmationContact = self.addingContact(addContact, contactExists, contactId, contactFirstName, contactLastName, contactPhone, contactDescription)
+
+            return confirmationContact
+
+        # Deleting contact
+        if deleteContact == True:
+            self.deletingContact(deleteContact, contactExists, contactList, contactId)
+
+        # Updating contact
+        if updateContact == True:
+            self.updatingContact(updateContact, contactExists, contactList, contactId, contactFirstName, contactLastName, contactPhone, contactDescription)
+                
+
+
+    # Adds an contact
+    def addingContact(self, addContact, contactExists, contactId, contactFirstName, contactLastName, contactPhone, contactDescription): 
+        
+        # (Kalra, 2023; Everythingtech, 2023), initializing new contact
+        newContact = Contact(None, None, None, None, None, True)
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), adding contact with error checking
+        try:
+            if (addContact == True) and (contactExists == False):
+                newContact.Contact(contactId, contactFirstName, contactLastName, contactPhone, contactDescription)
+                if newContact.addedCorrectly == False:
+                    self.added = False
+                    return
+                else:
+                    self.added = True
+                    return newContact
+        
+        # User incorrect id error check
+            elif (addContact == True) and (contactExists == True):
+                raise Exception
+        except:
+            self.added = False
+            print("Contact with input id has already been made, please use another id.")
+
+        
+    # Deletes a contact.
+    def deletingContact(self, deleteContact, contactExists, contactList, contactId): 
+        
+        # Variable to iterate through contact list to find location of same contact
+        sameContactId = 0
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), deleting contact with error checking
+        try:
+            if (deleteContact == True) and (contactExists == True):
+                for incrementContactList in contactList:
+                    if contactId == incrementContactList.getContactId():
+                        contactDelete = contactList.pop(sameContactId)
+                        contactDelete.deleteContactInfo()
+                        contactDelete = None
+                        self.deleted = True
+                
+                    # Adds one after if statment since the list can store at [0]
+                    sameContactId += 1
+
+            # User inccorect id error check
+            elif (deleteContact == True) and (contactExists == False):
+                raise Exception
+        except:
+                self.deleted = False
+                print("Contact with input id does not exist, can not delete.")
+
+    # Updates a contact.
+    def updatingContact(self, updateContact, contactExists, contactList, contactId, contactFirstName, contactLastName, contactPhone, contactDescription): 
+        
+        # Variable to iterate through contact list to find location of same contact
+        sameContactId = 0
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), deleting contact with error checking
+        try:
+            if (updateContact == True) and (contactExists == True):
+                for incrementContactList in contactList:
+                    if contactId == incrementContactList.getContactId():
+                        contactUpdate = contactList.pop(sameContactId)
+                        contactUpdate.updateContactInfo(contactFirstName, contactLastName, contactPhone, contactDescription)
+                        self.updated = True
+                
+                    # Adds one after if statment since the list can store at [0]
+                    sameContactId += 1
+
+            # User inccorect id error check
+            elif (updateContact == True) and (contactExists == False):
+                raise Exception
+        except:
+                self.updated = False
+                print("Contact with input id does not exist, can not update.")
 ```
 </details>
 <details>
-	<summary> </summary>
+	<summary> ContactServiceTest.py </summary>
 
 ```python
+import unittest
+from Contact import Contact
+from ContactService import ContactService
+
+class ContactTests (unittest.TestCase):
+
+    # Contact Service add tests
+    def testContactServiceAddCorrect(self):
+        
+        # Initializing empty list for test
+        checkContactList = []
+
+        # # (Kalra, 2023; Everythingtech, 2023), initializing and entering correct info into the Contact service
+        checkContactServices = ContactService(None, None, None, checkContactList, None, None, None, None, None)
+        checkContactServices.ContactService(True, False, False, checkContactList, "1", "1", "1", "1111111111", "1")
+        
+        # Checks added variable to see if addition happened
+        self.assertEqual(checkContactServices.added, True)
+    
+    def testContactServiceAddIdIncorrect(self):
+        
+        # Creating Contact test list
+        checkContactList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing Contact and stores it
+        checkContact = Contact(None, None, None, None, None, True)
+        checkContact.Contact("1", "1", "1", "1111111111", "1")
+        checkContactList.append(checkContact) 
+
+        # Initializes Contact services
+        checkContactServices = ContactService(None, None, None, checkContactList, None, None, None, None, None)
+        
+        # Inputs incorrect addition information into Contact services
+        checkContactServices.ContactService(True, False, False, checkContactList, "1", "1", "1", "1111111111", "1")
+        
+        # Checks added variable to see if addition happened
+        self.assertFalse(checkContactServices.added)
+
+    
+    # Delete tests
+    def testContactServiceDeleteCorrect(self):
+        
+        # Creating Contact test list
+        checkContactList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing Contact and stores it
+        checkContact = Contact(None, None, None, None, None, True)
+        checkContact.Contact("1", "1", "1", "1111111111", "1")
+        checkContactList.append(checkContact) 
+
+        # Initializes Contact services and inputs correct deletion information
+        checkContactServices = ContactService(None, None, None, checkContactList, None, None, None, None, None)
+        checkContactServices.ContactService(False, True, False, checkContactList, "1", "1", "1", "1111111111", "1")
+        
+        # Checks added variable to see if deletion happened
+        self.assertEqual(checkContactServices.deleted, True)
+
+    def testContactServiceDeleteIdIncorrect(self):
+        
+        # Creating Contact test list
+        checkContactList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), initializes Contact services
+        checkContactServices = ContactService(None, None, None, checkContactList, None, None, None, None, None)
+        
+        # Inputs incorrect deletion information and checks for non-deletion
+        checkContactServices.ContactService(False, True, False, checkContactList, "2", None, None, None, None)
+        self.assertFalse(checkContactServices.deleted)
+
+
+    # Update tests
+    def testContactServiceUpdateCorrect(self):
+        
+        # Creating Contact test list
+        checkContactList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing Contact and stores it
+        checkContact = Contact(None, None, None, None, None, True)
+        checkContact.Contact("1", "1", "1", "1111111111", "1")
+        checkContactList.append(checkContact) 
+
+        # Initializes Contact services and inputs correct deletion information
+        checkContactServices = ContactService(None, None, None, checkContactList, None, None, None, None, None)
+        checkContactServices.ContactService(False, False, True, checkContactList, "1", "1", "1", "1111111111", "1")
+        
+        # Checks added variable to see if deletion happened
+        self.assertEqual(checkContactServices.updated, True)
+
+    def testContactServiceUpdateIdIncorrect(self):
+        
+        # Creating Contact test list
+        checkContactList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), initializes Contact services
+        checkContactServices = ContactService(None, None, None, checkContactList, None, None, None, None, None)
+        
+        # Inputs incorrect update.
+        checkContactServices.ContactService(False, False, True, checkContactList, "2", None, None, None, None)
+        self.assertFalse(checkContactServices.updated)
+
+# Starts unit tests        
+if __name__== '__main__':
+    unittest.main()
 ```
 </details>
 
 ### Task Service
 <details>
-	<summary> </summary>
+	<summary> Task.py </summary>
 
 ```python
+import datetime
+
+# Declaring variables, removing magic numbers
+TASKIDMAX = 10
+TASKDESCRIPTIONMAX = 50
+
+
+class Task:
+
+    # Citation for self usage: (Gyanendra371, 2024)
+
+    # (Erakshaya485, 2024), initializing task object
+    def __init__(self, newTaskId, newTaskDate, newTaskDescription, newTaskInstantce): 
+        if newTaskInstantce == True:
+            return
+        
+        self.Task(newTaskId, newTaskDate, newTaskDescription)
+
+    def Task(self, newTaskId, newTaskDate, newTaskDescription):
+
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), task id being set, and error checking.
+        try:
+            if len(newTaskId) <= TASKIDMAX:
+                self.addedCorrectly = True
+                self.taskId = newTaskId
+
+            # Too Long of id
+            elif len(newTaskId) > TASKIDMAX:
+                print("Task id is too long, please keep it to 10 characters or less.")
+                raise Exception
+            
+            # Null Id
+            elif newTaskId == None:
+                print("Task id is null, please enter an id.")
+                raise Exception
+            
+        except:
+             self.addedCorrectly = False
+             return self
+        
+        # Calls functions to set input other information.
+        self.setTaskDate(newTaskDate)
+        self.setTaskDescription(newTaskDescription)
+
+        # Returns object
+        return self
+
+
+
+    # Setters and getters
+    def getTaskId(self):
+          return self.taskId
+    
+    def getTaskDate(self):
+          return self.taskDate
+    
+    def setTaskDate(self, newTaskDate):
+
+        # Gets the current time for later comparison.
+        dateToday = datetime.date.today()
+        
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), Sets task date if is valid.
+        try:
+            if newTaskDate > dateToday:
+                self.taskDate = newTaskDate
+            
+            # Date in past
+            elif newTaskDate < dateToday:
+                print("Task date is before the current date, please enter a valid date.")
+                raise Exception
+            
+            # Null date input
+            elif newTaskDate == None:
+                print("Task date is null, please enter a date.")
+                raise Exception
+        except:
+             self.addedCorrectly = False # Flags incorrect data
+                
+            
+
+    def getTaskDescription(self):
+          return self.taskDescription
+    
+    def setTaskDescription(self, newTaskDescription):
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), task description being set as well as error checking.
+        try:
+            if len(newTaskDescription) <= TASKDESCRIPTIONMAX:
+                self.taskDescription = newTaskDescription
+
+            # Description too long
+            elif len(newTaskDescription) > TASKDESCRIPTIONMAX:
+                print("Task description is too long, please keep it to 50 characters or less.")
+                raise Exception
+            
+            # Null description input
+            elif newTaskDescription.equals(None):
+                print(("Task description is null, please enter an description."))
+                raise Exception
+        except:
+            self.addedCorrectly = False # Flags incorrect data
+    
+    # Function deletes information stored within object
+    def deleteTaskInfo(self):
+          self.taskId = None
+          self.taskDate = None
+          self.taskDescription = None
+    
+    # Function updates information within object.
+    def updateTaskInfo(self, newTaskDate, newTaskDescription):
+        self.taskDate = self.setTaskDate(newTaskDate)
+        self.taskDescription = self.setTaskDescription(newTaskDescription)
 ```
 </details>
 <details>
-	<summary> </summary>
+	<summary> TaskTest.py </summary>
+import unittest
+from Task import Task
+import datetime
 
+class TaskTests (unittest.TestCase):
+
+    # Test with all information correct
+    def testTaskAllCorrect(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Task
+        checkTask = Task(None, None, None, True)
+        checkTask.Task("1", datetime.date(2025, 1, 1), "1")
+    
+        # Checks Task information
+        self.assertEqual(checkTask.getTaskId(), "1")
+        self.assertEqual(checkTask.getTaskDate(), datetime.date(2025, 1, 1))
+        self.assertEqual(checkTask.getTaskDescription(), "1")
+        self.assertTrue(checkTask.addedCorrectly)
+
+
+    # Task id tests
+    def testTaskIdLong(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Task
+        checkTask = Task(None, None, None, True)
+
+        # Checks if Task was not added
+        self.assertFalse(checkTask.Task("11111111111", datetime.date(2025, 1, 1), "1").addedCorrectly)
+
+
+    def testTaskIdNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Task
+        checkTask = Task(None, None, None, True)
+
+        # Checks if Task was not added
+        self.assertFalse(checkTask.Task(None, datetime.date(2025, 1, 1), "1").addedCorrectly)
+
+
+    # Task date tests
+    def testTaskDateBeforeCurrent(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Task
+        checkTask = Task(None, None, None, True)
+
+        # Checks if Task was not added
+        self.assertFalse(checkTask.Task("1", datetime.date(2023, 1, 1), "1").addedCorrectly)
+
+
+    def testTaskDateNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Task
+        checkTask = Task(None, None, None, True)
+
+        # Checks if Task was not added
+        self.assertFalse(checkTask.Task("1", None, "1").addedCorrectly)
+
+
+    # Task description test
+    def testTaskDescriptionLong(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Task
+        checkTask = Task(None, None, None, True)
+
+        # Checks for addition of Task
+        self.assertFalse(checkTask.Task("1", datetime.date(2025, 1, 1), (51 * "1")).addedCorrectly)
+
+
+    def testTaskDescriptionNull(self):
+
+        # (Kalra, 2023; Everythingtech, 2023), initialises Task
+        checkTask = Task(None, None, None, True)
+
+       # Checks for addition of Task
+        self.assertFalse(checkTask.Task("1", datetime.date(2025, 1, 1), None).addedCorrectly)
+ 
+        
+# Calls the unit tests
+if __name__== '__main__':
+    unittest.main()
 ```python
+
 ```
 </details>
 <details>
-	<summary> </summary>
+	<summary> TaskService.py </summary>
 
 ```python
+from Task import Task
+
+# Declaring variables, removing magic numbers
+STORESTASK = 1
+
+class TaskService:
+
+    # Citation for self usage: (Gyanendra371, 2024)
+
+    # (Erakshaya485, 2024), initializes the class.
+    def __init__(self, addTask, deleteTask, updateTask, taskList, taskId, taskDate, taskDescription):
+        if addTask == None:
+            return
+        
+        self.TaskService(addTask, deleteTask, updateTask, taskList, taskId, taskDate, taskDescription)
+
+    # Main task service function
+    def TaskService(self, addTask, deleteTask, updateTask, taskList, taskId, taskDate, taskDescription):
+
+        self.added = False
+        self.deleted = False
+        self.updated = False
+        taskExists = False
+
+        if len(taskList) >= STORESTASK:
+
+            # Checks if an task already exists with input id.
+            for incrementTaskList in taskList:
+                if taskId == incrementTaskList.getTaskId():
+                    taskExists = True
+        
+                else:
+                    taskExists = False
+        
+        # Adding task
+        if addTask == True:
+            confirmationTask = self.addingTask(addTask, taskExists, taskId, taskDate, taskDescription)
+
+            return confirmationTask
+
+        # Deleting task
+        if deleteTask == True:
+            self.deletingTask(deleteTask, taskExists, taskList, taskId)
+
+        # Updating task
+        if updateTask == True:
+            self.updatingTask(updateTask, taskExists, taskList, taskId, taskDate, taskDescription)
+                
+
+
+    # Adds an task
+    def addingTask(self, addTask, taskExists, taskId, taskDate, taskDescription): 
+        
+        # (Kalra, 2023; Everythingtech, 2023), initializing new task
+        newTask = Task(None, None, None, True)
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), adding task with error checking
+        try:
+            if (addTask == True) and (taskExists == False):
+                newTask.Task(taskId, taskDate, taskDescription)
+                if newTask.addedCorrectly == False:
+                    self.added = False
+                    return
+                else:
+                    self.added = True
+                    return newTask
+        
+        # User incorrect id error check
+            elif (addTask == True) and (taskExists == True):
+                raise Exception
+        except:
+            self.added = False
+            print("Task with input id has already been made, please use another id.")
+
+        
+    # Deletes a task.
+    def deletingTask(self, deleteTask, taskExists, taskList, taskId): 
+        
+        # Variable to iterate through task list to find location of same task
+        sameTaskId = 0
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), deleting task with error checking
+        try:
+            if (deleteTask == True) and (taskExists == True):
+                for incrementTaskList in taskList:
+                    if taskId == incrementTaskList.getTaskId():
+                        taskDelete = taskList.pop(sameTaskId)
+                        taskDelete.deleteTaskInfo()
+                        taskDelete = None
+                        self.deleted = True
+                
+                    # Adds one after if statment since the list can store at [0]
+                    sameTaskId += 1
+
+            # User inccorect id error check
+            elif (deleteTask == True) and (taskExists == False):
+                raise Exception
+        except:
+                self.deleted = False
+                print("Task with input id does not exist, can not delete.")
+
+    # Updates a task.
+    def updatingTask(self, updateTask, taskExists, taskList, taskId, taskDate, taskDescription): 
+        
+        # Variable to iterate through task list to find location of same task
+        sameTaskId = 0
+
+        # (TonyA, 2013; Rollbar Editorial Team, 2023), deleting task with error checking
+        try:
+            if (updateTask == True) and (taskExists == True):
+                for incrementTaskList in taskList:
+                    if taskId == incrementTaskList.getTaskId():
+                        taskUpdate = taskList.pop(sameTaskId)
+                        taskUpdate.updateTaskInfo(taskDate, taskDescription)
+                        self.updated = True
+                
+                    # Adds one after if statment since the list can store at [0]
+                    sameTaskId += 1
+
+            # User inccorect id error check
+            elif (updateTask == True) and (taskExists == False):
+                raise Exception
+        except:
+                self.updated = False
+                print("Task with input id does not exist, can not update.")
 ```
 </details>
 <details>
-	<summary> </summary>
+	<summary> TaskServiceTest.py </summary>
 
 ```python
+import unittest
+from Task import Task
+from TaskService import TaskService
+import datetime
+
+class TaskTests (unittest.TestCase):
+
+    # Task Service add tests
+    def testTaskServiceAddCorrect(self):
+        
+        # Initializing empty list for test
+        checkTaskList = []
+
+        # # (Kalra, 2023; Everythingtech, 2023), initializing and entering correct info into the Task service
+        checkTaskServices = TaskService(None, None, None, None, None, None, None)
+        checkTaskServices.TaskService(True, False, False, checkTaskList, "1", datetime.date(2025, 1, 1), "1")
+        
+        # Checks added variable to see if addition happened
+        self.assertEqual(checkTaskServices.added, True)
+    
+    def testTaskServiceAddIdIncorrect(self):
+        
+        # Creating Task test list
+        checkTaskList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing Task and stores it
+        checkTask = Task(None, None, None, True)
+        checkTask.Task("1", datetime.date(2025, 1, 1), "1")
+        checkTaskList.append(checkTask) 
+
+        # Initializes Task services
+        checkTaskServices = TaskService(None, None, None, checkTaskList, None, None, None)
+        
+        # Inputs incorrect addition information into Task services
+        checkTaskServices.TaskService(True, False, False, checkTaskList, "1", datetime.date(2025, 1, 1), "1")
+        
+        # Checks added variable to see if addition happened
+        self.assertFalse(checkTaskServices.added)
+
+    
+    # Delete tests
+    def testTaskServiceDeleteCorrect(self):
+        
+        # Creating Task test list
+        checkTaskList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing Task and stores it
+        checkTask = Task(None, None, None, True)
+        checkTask.Task("1", datetime.date(2025, 1, 1), "1")
+        checkTaskList.append(checkTask) 
+
+        # Initializes Task services and inputs correct deletion information
+        checkTaskServices = TaskService(None, None, None, checkTaskList, None, None, None)
+        checkTaskServices.TaskService(False, True, False, checkTaskList, "1", datetime.date(2025, 1, 1), "1")
+        
+        # Checks added variable to see if deletion happened
+        self.assertEqual(checkTaskServices.deleted, True)
+
+    def testTaskServiceDeleteIdIncorrect(self):
+        
+        # Creating Task test list
+        checkTaskList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), initializes Task services
+        checkTaskServices = TaskService(None, None, None, checkTaskList, None, None, None)
+        
+        # Inputs incorrect deletion information and checks for non-deletion
+        checkTaskServices.TaskService(False, True, False, checkTaskList, "2", None, None)
+        self.assertFalse(checkTaskServices.deleted)
+
+
+    # Update tests
+    def testTaskServiceUpdateCorrect(self):
+        
+        # Creating Task test list
+        checkTaskList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), creates an existing Task and stores it
+        checkTask = Task(None, None, None, True)
+        checkTask.Task("1", datetime.date(2025, 1, 1), "1")
+        checkTaskList.append(checkTask) 
+
+        # Initializes Task services and inputs correct deletion information
+        checkTaskServices = TaskService(None, None, None, checkTaskList, None, None, None)
+        checkTaskServices.TaskService(False, False, True, checkTaskList, "1", datetime.date (2026, 1, 1), "2")
+        
+        # Checks added variable to see if deletion happened
+        self.assertEqual(checkTaskServices.updated, True)
+
+    def testTaskServiceUpdateIdIncorrect(self):
+        
+        # Creating Task test list
+        checkTaskList = []
+
+        # (Kalra, 2023; Everythingtech, 2023), initializes Task services
+        checkTaskServices = TaskService(None, None, None, checkTaskList, None, None, None)
+        
+        # Inputs incorrect update.
+        checkTaskServices.TaskService(False, False, True, checkTaskList, "2", None, None)
+        self.assertFalse(checkTaskServices.updated)
+
+# Starts unit tests        
+if __name__== '__main__':
+    unittest.main()
 ```
 </details>
 
