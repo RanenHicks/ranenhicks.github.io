@@ -2147,6 +2147,7 @@ class Task:
 </details>
 <details>
 	<summary> TaskTest.py </summary>
+```python
 import unittest
 from Task import Task
 import datetime
@@ -2227,8 +2228,6 @@ class TaskTests (unittest.TestCase):
 # Calls the unit tests
 if __name__== '__main__':
     unittest.main()
-```python
-
 ```
 </details>
 <details>
