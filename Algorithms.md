@@ -5,11 +5,22 @@
 
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Algorithms%20and%20Data%20Structures)
 
-## Click to Navigate:
-### [Old Artifact (IT-145 Artifact Without Enchancements)](#old-artifact)
-### [New Artifact (CS-499 Algorithms and Data Structures Enhancement)](#new-artifact)
+# Click to Navigate:
+## [Old Artifact (IT-145 Artifact Without Enchancements)](#old-artifact)
+[Driver.java](#driverjava)
+[RescueAnimal.java](#rescueanimaljava)
+[Back to Top](#dogjava)
+[Monkey.java](#monkeyjava)
 
+## [New Artifact (CS-499 Algorithms and Data Structures Enhancement)](#new-artifact)
+[Driver.java](#driverjava-1)
+[RescueAnimal.java](#rescueanimaljava-1)
+[Back to Top](#dogjava-1)
+[Monkey.java](#monkeyjava-1)
+
+[Back to Top](#alorithms-and-data-structures)
 # Old Artifact:
+
 ### Driver.java
 ```java
 import java.util.ArrayList;
@@ -385,6 +396,7 @@ public class Driver {
 }
 ```
 
+[Back to Top](#alorithms-and-data-structures)
 ### RescueAnimal.java
 ```java
 
@@ -514,6 +526,7 @@ public class RescueAnimal {
 }
 ```
 
+[Back to Top](#alorithms-and-data-structures)
 ### Dog.java
 ```java
 
@@ -552,6 +565,7 @@ public class Dog extends RescueAnimal {
 }
 ```
 
+[Back to Top](#alorithms-and-data-structures)
 ### Monkey.java
 ```java
 
@@ -633,7 +647,7 @@ public class Monkey extends RescueAnimal {
 	}
 }
 ```
-
+[Back to Top](#alorithms-and-data-structures)
 # New Artifact:
 
 ### Driver.java
@@ -1322,6 +1336,7 @@ class newKeyFunction {
 }
 ```
 
+[Back to Top](#alorithms-and-data-structures)
 ### RescueAnimal.java
 ```java
 
@@ -1449,6 +1464,7 @@ public class RescueAnimal {
 }
 ```
 
+[Back to Top](#alorithms-and-data-structures)
 ### Dog.java
 ```java
 
@@ -1487,6 +1503,7 @@ public class Dog extends RescueAnimal {
 }
 ```
 
+[Back to Top](#alorithms-and-data-structures)
 ### Monkey.java
 ```java
 
