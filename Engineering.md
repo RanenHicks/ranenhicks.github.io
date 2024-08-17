@@ -1,4 +1,4 @@
-<!-- (Github basic writing and formatting syntax, n.d.; pierrejoubert73, 2024) -->
+<!-- (Github basic writing and formatting syntax, n.d.; jonikarppinen, 2019; Mendelssohn, 2022) -->
 
 [Go Back](README.md)
 
