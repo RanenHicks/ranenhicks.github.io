@@ -3,6 +3,8 @@
 
 # Algorithms and Data Structures
 
+## [See the Code in the Repository](Algorithms and Data Structures)
+
 ## Click to Navigate:
 ### [Old Artifact (IT-145 Artifact Without Enchancements)](#old-artifact)
 ### [New Artifact (CS-499 Algorithms and Data Structures Enhancement)](#new-artifact)
