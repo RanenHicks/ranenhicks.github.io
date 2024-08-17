@@ -3,7 +3,7 @@
 
 # Algorithms and Data Structures
 
-## [See the Code in the Repository](Algorithms and Data Structures)
+## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Algorithms%20and%20Data%20Structures)
 
 ## Click to Navigate:
 ### [Old Artifact (IT-145 Artifact Without Enchancements)](#old-artifact)
