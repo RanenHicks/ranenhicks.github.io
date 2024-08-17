@@ -4,13 +4,10 @@
 
 ## Old Artifact:
 ### Appointment Services:
-<details>
-  <summary> Appointment.java </summary>
-	
-```markdown
+
+### Appointment.java
 
 ```java
-
 import java.util.Date;
 
 public class Appointment {
@@ -117,11 +114,8 @@ public class Appointment {
 		}
 }
 ```
-```
-</details>
-<details>
-  <summary> AppointmentTest.java </summary>
 
+### AppointmentTest.java
 ```java
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -199,9 +193,8 @@ class AppointmentTest {
 
 }
 ```
-</details>
-<details>
-  <summary> AppointmentService.java </summary>
+
+### AppointmentService.java
   
 ```java
 import java.util.Date;
@@ -252,9 +245,8 @@ public class AppointmentService {
 	}
 }
   ```
-</details>
-<details>
-  <summary> AppointmentServiceTest.java </summary>
+
+### AppointmentServiceTest.java 
 
 ```java
 import static org.junit.jupiter.api.Assertions.*;
@@ -304,11 +296,10 @@ class AppointmentServiceTest {
 	}
 }
 ```
-</details>
 
 ### Contact Services:
-<details>
-  <summary> Contact.java </summary>
+
+### Contact.java
 
 ```java
 
@@ -464,9 +455,8 @@ public class Contact {
 	}
 }
 ```
-</details>
-<details>
-  <summary> ContactTest.java </summary>
+
+### ContactTest.java
 
 ```java
 import static org.junit.jupiter.api.Assertions.*;
@@ -595,9 +585,8 @@ class ContactTest {
 	}
 }
 ```
-</details>
-<details>
-  <summary> ContactService.java </summary>
+
+### ContactService.java
 
 ```java
 
@@ -740,9 +729,8 @@ public class ContactService {
 	}
 }
 ```
-</details>
-<details>
-  <summary> ContactServiceTest.java </summary>
+
+### ContactServiceTest.java
 
 ```java
 import static org.junit.jupiter.api.Assertions.*;
@@ -820,11 +808,10 @@ class ContactServiceTest {
 	
 }
 ```
-</details>
 
 ### Task Services:
-<details>
-  <summary> Task.java </summary>
+
+### Task.java
 
 ```java
 
@@ -919,9 +906,8 @@ public class Task {
 	}
 }
 ```
-</details>
-<details>
-  <summary> TaskTest.java </summary>
+
+### TaskTest.java
 
 ```java
 import static org.junit.jupiter.api.Assertions.*;
@@ -998,9 +984,8 @@ class TaskTest {
 
 }
 ```
-</details>
-<details>
-  <summary> TaskService.java </summary>
+
+### TaskService.java
 
 ```java
 
@@ -1078,9 +1063,7 @@ public class TaskService {
 	}
 }
 ```
-</details>
-<details>
-  <summary> TaskServiceTest.java </summary>
+### TaskServiceTest.java
 
 ```java
 import static org.junit.jupiter.api.Assertions.*;
@@ -1143,12 +1126,11 @@ class TaskServiceTest {
 
 }
 ```
-</details>
 
 ## New Artifact:
 ### Appointment Service
-<details>
-	<summary> Appointment.py </summary>
+
+### Appointment.py
 
 ```python
 import datetime
@@ -1259,9 +1241,8 @@ class Appointment:
           self.appointmentDate = None
           self.appointmentDescription = None
 ```
-</details>
-<details>
-	<summary> AppointmentTest.py </summary>
+
+### AppointmentTest.py
 
 ```python
 import unittest
@@ -1345,9 +1326,8 @@ class AppointmentTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
 ```
-</details>
-<details>
-	<summary> AppointmentService.py </summary>
+
+### AppointmentService.py
 
 ```python
 from Appointment import Appointment
@@ -1446,9 +1426,8 @@ class AppointmentService:
                 self.deleted = False
                 print("Appointment with input id does not exist, can not delete.")
 ```
-</details>
-<details>
-	<summary> AppointmentServiceTest.py </summary>
+
+### AppointmentServiceTest.py
 
 ```python
 import unittest
@@ -1526,11 +1505,11 @@ class AppointmentTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
 ```
-</details>
+
 
 ### Contact Service
-<details>
-	<summary> Contact.py </summary>
+
+### Contact.py </summary>
 
 ```python
 # Declaring variables, removing magic numbers
@@ -1693,9 +1672,8 @@ class Contact:
         self.contactPhone = self.setContactPhone(newContactPhone)
         self.contactAddress = self.setContactAddress(newContactAddress)
 ```
-</details>
-<details>
-	<summary> ContactTest.py </summary>
+
+### ContactTest.py
 
 ```python
 import unittest
@@ -1788,9 +1766,8 @@ class ContactTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
 ```
-</details>
-<details>
-	<summary> ContactService.py </summary>
+
+### ContactService.py 
 
 ```python
 from Contact import Contact
@@ -1918,9 +1895,8 @@ class ContactService:
                 self.updated = False
                 print("Contact with input id does not exist, can not update.")
 ```
-</details>
-<details>
-	<summary> ContactServiceTest.py </summary>
+
+### ContactServiceTest.py
 
 ```python
 import unittest
@@ -2027,11 +2003,10 @@ class ContactTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
 ```
-</details>
 
 ### Task Service
-<details>
-	<summary> Task.py </summary>
+
+### Task.py
 
 ```python
 import datetime
@@ -2039,7 +2014,6 @@ import datetime
 # Declaring variables, removing magic numbers
 TASKIDMAX = 10
 TASKDESCRIPTIONMAX = 50
-
 
 class Task:
 
@@ -2148,9 +2122,8 @@ class Task:
         self.taskDate = self.setTaskDate(newTaskDate)
         self.taskDescription = self.setTaskDescription(newTaskDescription)
 ```
-</details>
-<details>
-	<summary> TaskTest.py </summary>
+
+### TaskTest.py
 ```python
 import unittest
 from Task import Task
@@ -2233,9 +2206,8 @@ class TaskTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
 ```
-</details>
-<details>
-	<summary> TaskService.py </summary>
+
+### TaskService.py
 
 ```python
 from Task import Task
@@ -2363,9 +2335,8 @@ class TaskService:
                 self.updated = False
                 print("Task with input id does not exist, can not update.")
 ```
-</details>
-<details>
-	<summary> TaskServiceTest.py </summary>
+
+### TaskServiceTest.py
 
 ```python
 import unittest
@@ -2473,5 +2444,4 @@ class TaskTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
 ```
-</details>
 
