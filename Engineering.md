@@ -4,7 +4,7 @@
 
 ## Click to navigate:
 ### [Old Artifact (CS 340 Artifact Without Enhancements)](#old-artifact)
-### [New Artifact (CS-499 Software Design and Engineering)](#new-artifact)
+### [New Artifact (CS-499 Software Design and Engineering Enhancement)](#new-artifact)
 
 # Old Artifact:
 ## Appointment Service:
