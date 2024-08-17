@@ -7,7 +7,7 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 ## [Artifact 1: Software Design and Engineering](Engineering.md)
 
-### Narrative:
+### [Narrative](https://docs.google.com/document/d/1-sVM5UqeYbytaSxauqQEcnBLY51JZtqr/edit?usp=sharing&ouid=114962371169660708666&rtpof=true&sd=true)
         
              
 
