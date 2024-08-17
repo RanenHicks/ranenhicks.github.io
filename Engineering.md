@@ -4,6 +4,7 @@
 
 ## Click to navigate:
 ### [Old Artifact](#old-artifact)
+### [New Artifact](#new-artifact)
 
 # Old Artifact (CS 340 Artifact Without Enhancements):
 ## Appointment Services:
@@ -1130,7 +1131,7 @@ class TaskServiceTest {
 }
 ```
 
-# New Artifact:
+# New Artifact(CS-499 Software Design and Engineering):
 ## Appointment Service
 
 ### Appointment.py
@@ -1512,7 +1513,7 @@ if __name__== '__main__':
 
 ## Contact Service
 
-### Contact.py </summary>
+### Contact.py
 
 ```python
 # Declaring variables, removing magic numbers
