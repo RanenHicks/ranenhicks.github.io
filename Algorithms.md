@@ -650,6 +650,7 @@ public class Monkey extends RescueAnimal {
 [Back to Top](#click-to-navigate)
 # New Artifact:
 
+[Back to Top](#click-to-navigate)
 ### Driver.java
 ```java
 /*
