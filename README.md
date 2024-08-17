@@ -1,3 +1,4 @@
+<!-- (Github basic writing and formatting syntax, n.d.; Mendelssohn, 2022) -->
 Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contains courswork from my Computer Science Capstone at SNHU.
 
 ## Self-Assesment:
