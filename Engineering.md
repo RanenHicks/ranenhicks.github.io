@@ -3,7 +3,9 @@
 ## Old Artifact:
 
 ### Appointment Services:
-```java
+<details>
+  <summary> Appointment.java </summary>
+	```java
 
 import java.util.Date;
 
@@ -111,8 +113,6 @@ public class Appointment {
 		}
 }
 ```
-<details>
-  <summary> Appointment.java </summary>
 </details>
 <details>
   <summary> AppointmentTest.java </summary>
@@ -250,6 +250,7 @@ public class AppointmentService {
 </details>
 <details>
   <summary> AppointmentServiceTest.java </summary>
+
 ```java
 import static org.junit.jupiter.api.Assertions.*;
 
