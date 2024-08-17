@@ -7,7 +7,8 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 ## Artifact 1: Software Design and Engineering
 ### Old:
 
-### Updated:
+<details>
+    <summary> Updated </summary>
 
 ```python
 import datetime
@@ -122,7 +123,7 @@ class Appointment:
           self.appointmentDate = None
           self.appointmentDescription = None
 ```  
-        
+ </details>       
         
              
 
