@@ -7,7 +7,8 @@
 <details>
   <summary> Appointment.java </summary>
 	
-```
+```markdown
+```java
 import java.util.Date;
 
 public class Appointment {
@@ -113,6 +114,7 @@ public class Appointment {
 			appointmentDate = null;
 		}
 }
+```
 ```
 </details>
 <details>
