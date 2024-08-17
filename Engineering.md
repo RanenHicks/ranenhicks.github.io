@@ -6,7 +6,7 @@
 <details>
   <summary> Appointment.java </summary>
   
-	```Java
+	```
 		import java.util.Date;
 		
 		public class Appointment {
