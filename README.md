@@ -3,6 +3,7 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 ## Self-Assesment:
 
+## [Code Review](https://www.youtube.com/watch?v=fLZz_yEud5Q)
 
 
 ## [Artifact 1: Software Design and Engineering](Engineering.md)
