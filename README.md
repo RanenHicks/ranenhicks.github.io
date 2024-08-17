@@ -7,7 +7,7 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 ## Artifact 1: Software Design and Engineering
 
 ### Narrative:
-[Link text](https://github.com/RanenHicks/ranenhicks.github.io/blob/main/Driver.py)
+[Link text](Driver.py)
 
 Driver.py
 ### Old:
