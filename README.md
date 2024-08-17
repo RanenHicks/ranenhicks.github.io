@@ -7,8 +7,8 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 ## Artifact 1: Software Design and Engineering
 
 ### Narrative:
-<summary> check
-</summary>
+<details>
+<summary> check </summary>
 
 ```python
 import unittest
@@ -92,7 +92,7 @@ class TaskTests (unittest.TestCase):
 if __name__== '__main__':
     unittest.main()
     ```
-
+</details>
 ### [Old Artifact](Engineering.md)
         
              
