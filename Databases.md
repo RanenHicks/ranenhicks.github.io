@@ -6,7 +6,7 @@
 # Click to Navigate:
 ## [Old Artifact CS-340 Artifact Without Enhancements](#old-artifact)
 * [RanenHicksProjectTwo.py](#ranenhicksprojecttwopy)
-* [ProjectTwoDashboard - Ranen Hicks.ipynb](#projectTwoDashboard - Ranen Hics.ipynb)
+* [ProjectTwoDashboard - Ranen Hicks.ipynb](#projectTwoDashboard - Ranen Hicks.ipynb)
 
 [Back to Top](#click-to-navigate)
 # Old Artifact:
