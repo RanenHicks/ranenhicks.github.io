@@ -6,7 +6,7 @@
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Software%20Design%20and%20Engineering)
 
 # Click to Navigate:
-## [Old Artifact (CS 340 Artifact Without Enhancements)](#old-artifact)
+## [Old Artifact (CS-320 Artifact Without Enhancements)](#old-artifact)
 * [Appointment.java](#appointmentjava)
 * [AppointmentTest.java](#appointmenttestjava)
 * [AppointmentService.java](#appointmentservicejava)
