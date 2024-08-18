@@ -1,1 +1,392 @@
+<!-- (Github basic writing and formatting syntax, n.d.; jonikarppinen, 2019; Mendelssohn, 2022; Adding content to your GitHub Pages site using Jekyll, n.d.) -->
 
+# Database
+## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Databases)
+
+# Click to Navigate:
+## [Old Artifact CS-340 Artifact Without Enhancements](#old-artifact)
+
+[Back to Top](#click-to-navigate)
+# Old Artifact:
+
+[Back to Top](#click-to-navigate)
+## RanenHicksProjectTwo.py
+
+```python
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+
+class AnimalShelter(object):
+    """ CRUD operations for Animal collection in MongoDB """
+    
+    def __init__(self, USER, PASS): #, HOST, PORT, DB, COL):
+        # Initializing the MongoClient. This helps to 
+        # access the MongoDB databases and collections.
+        # This is hard-wired to use the aac database, the 
+        # animals collection, and the aac user.
+        # Definitions of the connection string variables are
+        # unique to the individual Apporto environment.
+        #
+        # You must edit the connection variables below to reflect
+        # your own instance of MongoDB!
+        #
+        # Connection Variables
+        #
+        #USER = 'aacuser'
+        #PASS = 'aacPass'
+        HOST = 'nv-desktop-services.apporto.com'
+        PORT = 31870
+        DB = 'AAC'
+        COL = 'animals'
+        #
+        # Initialize Connection
+        #
+        self.client = MongoClient('mongodb://%s:%s@%s:%d' % (USER,PASS,HOST,PORT))
+        self.database = self.client['%s' % (DB)]
+        self.collection = self.database['%s' % (COL)]
+        
+# This method allows the user to insert an animal into the database
+    def create(self, data):
+        if data is not None:
+            self.database.animals.insert_one(data)  # data should be dictionary    
+            return "True"  # Feedback to user.
+        else:
+            return "False"
+
+# This method allows the user to search an AAC database for specific animals.
+    def read(self, data):
+        if data is not None:
+            result = self.database.animals.find(data)  # Result stored in list.
+            result2 = list(result)
+            print("[")
+            return result2
+            print("]")
+        
+        else:
+            print("[]") #Creating an empty list using brackets.
+    
+#  This method allows the user to update all queries that match their first input with what they want to change as their second.
+    def update(self, data, data2):
+        if data is not None:
+                #  Only need to use update_many as it can do one and many updates. It also reduces the amount of code written.
+                result = self.database.animals.update_many(data, data2)
+                return result.modified_count
+        else:
+            return 0
+    
+#  This method allows the user to delete all the queries that match the input they entered into the funciton.
+    def delete(self, data):
+        if data is not None:
+            result = self.database.animals.delete_many(data)
+            return result.deleted_count
+        else:
+            return 0
+```
+
+[Back to Top](#click-to-navigate)
+## ProjectTwoDashboard - Ranen Hicks.ipynb
+
+```python
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "3ed24c36",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[\n",
+      "Dash app running on http://127.0.0.1:25290/\n",
+      "[\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Setup the Jupyter version of Dash\n",
+    "from jupyter_dash import JupyterDash\n",
+    "\n",
+    "# Configure the necessary Python module imports for dashboard components\n",
+    "import dash_leaflet as dl\n",
+    "from dash import dcc\n",
+    "from dash import html\n",
+    "import plotly.express as px\n",
+    "from dash import dash_table\n",
+    "from dash.dependencies import Input, Output, State\n",
+    "import base64\n",
+    "\n",
+    "# Configure OS routines\n",
+    "import os\n",
+    "\n",
+    "# Configure the plotting routines\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "\n",
+    "#### FIX ME #####\n",
+    "# change animal_shelter and AnimalShelter to match your CRUD Python module file name and class name\n",
+    "from ProjectTwoRanenHicks import AnimalShelter\n",
+    "\n",
+    "# The code I referenced will be cited in the readme.\n",
+    "\n",
+    "###########################\n",
+    "# Data Manipulation / Model\n",
+    "###########################\n",
+    "# FIX ME update with your username and password and CRUD Python module name\n",
+    "\n",
+    "username = \"aacuser\"\n",
+    "password = \"aacPass\"\n",
+    "\n",
+    "# Connect to database via CRUD Module\n",
+    "db = AnimalShelter(username, password)\n",
+    "\n",
+    "# class read method must support return of list object and accept projection json input\n",
+    "# sending the read method an empty document requests all documents be returned\n",
+    "df = pd.DataFrame.from_records(db.read({}))\n",
+    "\n",
+    "# MongoDB v5+ is going to return the '_id' column and that is going to have an \n",
+    "# invlaid object type of 'ObjectID' - which will cause the data_table to crash - so we remove\n",
+    "# it in the dataframe here. The df.drop command allows us to drop the column. If we do not set\n",
+    "# inplace=True - it will reeturn a new dataframe that does not contain the dropped column(s)\n",
+    "df.drop(columns=['_id'],inplace=True)\n",
+    "\n",
+    "## Debug\n",
+    "# print(len(df.to_dict(orient='records')))\n",
+    "# print(df.columns)\n",
+    "\n",
+    "\n",
+    "#########################\n",
+    "# Dashboard Layout / View\n",
+    "#########################\n",
+    "app = JupyterDash(__name__)\n",
+    "\n",
+    "#FIX ME Add in Grazioso Salvare’s logo\n",
+    "image_filename = 'Grazioso.png' # replace with your own image\n",
+    "encoded_image = base64.b64encode(open(image_filename, 'rb').read())\n",
+    "\n",
+    "#FIX ME Place the HTML image tag in the line below into the app.layout code according to your design\n",
+    "#FIX ME Also remember to include a unique identifier such as your name or date\n",
+    "\n",
+    "app.layout = html.Div([\n",
+    "#    html.Div(id='hidden-div', style={'display':'none'}),\n",
+    "    \n",
+    "    html.Center(html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()))),\n",
+    "    html.Center(html.B(html.H1('CS-340 Dashboard - Ranen Hicks'))),\n",
+    "    html.Hr(),\n",
+    "    \n",
+    "    #FIXME Add in code for the interactive filtering options. For example, Radio buttons, drop down, checkboxes, etc.  \n",
+    "    html.Div([    \n",
+    "    dcc.Dropdown(['Reset', 'Water', 'Mountain or Wilderness', 'Disaster or Individual Tracking'], id='filter-type'),\n",
+    "    ]),   \n",
+    "    html.Hr(),\n",
+    "    dash_table.DataTable(id='datatable-id',\n",
+    "                         columns=[{\"name\": i, \"id\": i, \"deletable\": False, \"selectable\": True} for i in df.columns],\n",
+    "                         data=df.to_dict('records'),\n",
+    "#FIXME: Set up the features for your interactive data table to make it user-friendly for your client\n",
+    "#If you completed the Module Six Assignment, you can copy in the code you created here \n",
+    "                         \n",
+    "                         row_selectable = 'single',\n",
+    "                         sort_action = 'native',\n",
+    "                         sort_mode = 'multi',\n",
+    "                         filter_action = 'native',\n",
+    "                         selected_rows = [0],\n",
+    "                         page_size = 10,  # Page_size is 10 to allow the user to see the full list of one page without scrolling.\n",
+    "\n",
+    "                        ),\n",
+    "    html.Br(),\n",
+    "    html.Hr(),\n",
+    "#This sets up the dashboard so that your chart and your geolocation chart are side-by-side\n",
+    "    html.Div(className='row',\n",
+    "         style={'display' : 'flex'},\n",
+    "             children=[\n",
+    "        html.Div(\n",
+    "            id='graph-id',\n",
+    "            className='col s12 m6',\n",
+    "\n",
+    "            ),\n",
+    "        html.Div(\n",
+    "            id='map-id',\n",
+    "            className='col s12 m6',\n",
+    "            )\n",
+    "        ])\n",
+    "])\n",
+    "\n",
+    "#############################################\n",
+    "# Interaction Between Components / Controller\n",
+    "#############################################\n",
+    "\n",
+    "\n",
+    "\n",
+    "    \n",
+    "@app.callback(Output('datatable-id','data'),\n",
+    "              [Input('filter-type', 'value')])\n",
+    "def update_dashboard(value):\n",
+    "## FIX ME Add code to filter interactive data table with MongoDB queries    \n",
+    "    \n",
+    "    # Resets table\n",
+    "    if value == 'Reset':\n",
+    "        df = pd.DataFrame.from_records(db.read({}))\n",
+    "                                      \n",
+    "    # Sorts into correct breed and sex, however the age seems to not work correctly.\n",
+    "    elif value == 'Water':\n",
+    "        df = pd.DataFrame.from_records(db.read({\"$or\": [\n",
+    "            { \"$and\": [{'breed':'Labrador Retriever Mix', 'sex_upon_outcome': 'Intact Female',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]},\n",
+    "            { \"$and\": [{'breed':'Chesapeake Bay Retriever', 'sex_upon_outcome': 'Intact Female',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]},\n",
+    "            { \"$and\": [{'breed':'Newfoundland', 'sex_upon_outcome': 'Intact Female',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]}]}))\n",
+    "        \n",
+    "    # Switches table to Mountain or Wilderness, this also has the age query problem. \n",
+    "    elif value == 'Mountain or Wilderness':\n",
+    "        df = pd.DataFrame.from_records(db.read({\"$or\": [\n",
+    "            { \"$and\": [{'breed':'German Shepherd', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]},\n",
+    "            { \"$and\": [{'breed':'Alaskan Malamute', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]},\n",
+    "            { \"$and\": [{'breed':'Old English Sheepdog', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]},\n",
+    "            { \"$and\": [{'breed':'Siberian Husky', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]},\n",
+    "            { \"$and\": [{'breed':'Rottweiler', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'156'}, 'age_upon_outcome':{\"$gte\":'26'}}]}]}))\n",
+    "    \n",
+    "    # Switches table to Disaster or Individual Tracking, this also has the age query problem.\n",
+    "    elif value == 'Disaster or Individual Tracking':\n",
+    "        df = pd.DataFrame.from_records(db.read({\"$or\": [\n",
+    "            { \"$and\": [{'breed':'Doberman Pinscher', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'300'}, 'age_upon_outcome':{\"$gte\":'20'}}]},\n",
+    "            { \"$and\": [{'breed':'German Shepherd', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'300'}, 'age_upon_outcome':{\"$gte\":'20'}}]},\n",
+    "            { \"$and\": [{'breed':'Golden Retriever', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'300'}, 'age_upon_outcome':{\"$gte\":'20'}}]},\n",
+    "            { \"$and\": [{'breed':'Bloodhound', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'300'}, 'age_upon_outcome':{\"$gte\":'20'}}]},\n",
+    "            { \"$and\": [{'breed':'Rottweiler', 'sex_upon_outcome': 'Intact Male',\n",
+    "                        'age_upon_outcome':{\"$lte\":'300'}, 'age_upon_outcome':{\"$gte\":'20'}}]}]}))\n",
+    "            \n",
+    "            \n",
+    "            \n",
+    "    # Drops extra columns in the table and only leaves the new queried info for the table.\n",
+    "    df.drop(columns=['_id'],inplace=True)\n",
+    "    data=df.to_dict('records')\n",
+    "    \n",
+    "    return data\n",
+    "\n",
+    "# Display the breeds of animal based on quantity represented in\n",
+    "# the data table\n",
+    "@app.callback(Output('graph-id', \"children\"),\n",
+    "              [Input('datatable-id', \"derived_virtual_data\")])\n",
+    "\n",
+    "\n",
+    "def update_graphs(viewData):\n",
+    "    \n",
+    "    ###FIX ME ####\n",
+    "    #add code for chart of your choice (e.g. pie chart) #\n",
+    "    \n",
+    "    # Creates an updated datafram when the table changes to also change the chart.\n",
+    "    dfnew = pd.DataFrame.from_dict(viewData)\n",
+    "    return [dcc.Graph(figure = px.pie(dfnew, names='breed', title='Preferred Animals'))]\n",
+    "    \n",
+    "#This callback will highlight a cell on the data table when the user selects it\n",
+    "@app.callback(Output('datatable-id', 'style_data_conditional'),\n",
+    "              [Input('datatable-id', 'selected_columns')]\n",
+    ")\n",
+    "def update_styles(selected_columns):\n",
+    "    return [{\n",
+    "        'if': { 'column_id': i },\n",
+    "        'background_color': '#D2F3FF'\n",
+    "    } for i in selected_columns]\n",
+    "\n",
+    "\n",
+    "# This callback will update the geo-location chart for the selected data entry\n",
+    "# derived_virtual_data will be the set of data available from the datatable in the form of \n",
+    "# a dictionary.\n",
+    "# derived_virtual_selected_rows will be the selected row(s) in the table in the form of\n",
+    "# a list. For this application, we are only permitting single row selection so there is only\n",
+    "# one value in the list.\n",
+    "# The iloc method allows for a row, column notation to pull data from the datatable\n",
+    "@app.callback(\n",
+    "    Output('map-id', \"children\"),\n",
+    "    [Input('datatable-id', \"derived_virtual_data\"),\n",
+    "     Input('datatable-id', \"derived_virtual_selected_rows\")])\n",
+    "def update_map(viewData, index):  \n",
+    "    if viewData is None:\n",
+    "        return\n",
+    "    elif index is None:\n",
+    "        return\n",
+    "    \n",
+    "    dff = pd.DataFrame.from_dict(viewData)\n",
+    "    # Because we only allow single row selection, the list can be converted to a row index here\n",
+    "    if index is None:\n",
+    "        row = 0\n",
+    "    else: \n",
+    "        row = index[0]\n",
+    "        \n",
+    "    # Austin TX is at [30.75,-97.48]\n",
+    "    return [\n",
+    "        dl.Map(style={'width': '1000px', 'height': '500px'}, center=[30.75,-97.48], zoom=10, children=[\n",
+    "            dl.TileLayer(id=\"base-layer-id\"),\n",
+    "            # Marker with tool tip and popup\n",
+    "            # Column 13 and 14 define the grid-coordinates for the map\n",
+    "            # Column 4 defines the breed for the animal\n",
+    "            # Column 9 defines the name of the animal\n",
+    "            dl.Marker(position=[dff.iloc[row,13],dff.iloc[row,14]], children=[\n",
+    "                dl.Tooltip(dff.iloc[row,4]),\n",
+    "                dl.Popup([\n",
+    "                    html.H1(\"Animal Name\"),\n",
+    "                    html.P(dff.iloc[row,9])\n",
+    "                ])\n",
+    "            ])\n",
+    "        ])\n",
+    "    ]\n",
+    "\n",
+    "\n",
+    "\n",
+    "app.run_server(debug=True)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "59fc8717",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "305b3a82",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
+```
