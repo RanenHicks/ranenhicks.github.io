@@ -8,6 +8,8 @@
 * [RanenHicksProjectTwo.py](#ranenhicksprojecttwopy)
 * [ProjectTwoDashboard - Ranen Hicks.ipynb](#projecttwodashboard---ranen-hicksipynb)
 
+## [New Artifact CS-499 Artifact With Enhancements](#new-artifact)
+
 [Back to Top](#click-to-navigate)
 # Old Artifact:
 
@@ -332,3 +334,6 @@ def update_map(viewData, index):
 
 app.run_server(debug=True)
 ```
+[Back to Top](#click-to-navigate)
+# New Artifact:
+
