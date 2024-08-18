@@ -18,5 +18,7 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 ## Artifact 3: Databases
 
+## [Artifact 3: Databases](#Databases.md)
+
 ## [References Used to Make this ePortfolio](https://docs.google.com/document/d/10tcO9LBiJUnxnEvLL6yUBRigKrY8qpbuSsRe_rvs95M/edit?usp=sharing)
 
