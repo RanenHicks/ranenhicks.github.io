@@ -1,6 +1,7 @@
 <!-- (Github basic writing and formatting syntax, n.d.; jonikarppinen, 2019; Mendelssohn, 2022; Adding content to your GitHub Pages site using Jekyll, n.d.) -->
 [Go Back](README.md)
 # Database
+## Important: When downloading the enhancement, when importing the csv into MongoDB for the first time, make sure the date_of_birth and name fields are strings, and that ignore emptry strings is false/unchecked.
 ## FYI: The new artifact section will not show all of the files inside the enhancement, only the ones I edited/created will be shown. If you want to see the whole file please click the repository link below.
 
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Databases)
