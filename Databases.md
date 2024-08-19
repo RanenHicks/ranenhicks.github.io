@@ -7,10 +7,18 @@
 
 # Click to Navigate:
 ## [Old Artifact CS-340 Artifact Without Enhancements](#old-artifact)
-* [RanenHicksProjectTwo.py](#ranenhicksprojecttwopy)
+* [ProjectTwoRanenHicks.py](#projecttworanenhickspy)
 * [ProjectTwoDashboard - Ranen Hicks.ipynb](#projecttwodashboard---ranen-hicksipynb)
 
 ## [New Artifact CS-499 Artifact With Enhancements](#new-artifact)
+* [ProjectTwoRanenHicks.py](#projecttworanenhickspy-1)
+* [UpdateController.py](#updatecontrollerpy)
+* [models.py](#modelspy)
+* [views.py](#viewspy)
+* [urls.py (in /database)](#urlspydatabase)
+* [citation.py](#citationspy)
+* [settings.py](#settingspy)
+* [urls.py (in /CS499DatabasesRanenHicks)](#urlspy-in-cs499databasesranenhicks)
 
 [Back to Top](#click-to-navigate)
 # Old Artifact:
@@ -582,7 +590,7 @@ def showLink(request):
     return render(request, "templates/homepage.html")
 ```
 
-## urls.py(/database)
+## urls.py(in /database)
 ```python
 from django.urls import path
 
