@@ -3,7 +3,11 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 # Navigate:
 ### [Professional Self-Assesment](#professional-self-assesment-1)
-### [Code Review](#codereview)
+### [Code Review](#code-review-1)
+### [Artifact 1](#artifact-1-software-design-and-engineering)
+### [Artifact 2](#artifact-2-algorithms-and-datastructures)
+### [Artifact 3](#artifact-3-databases)
+### [References](#references-used-to-make-this-eportfolio)
 
 ## Professional Self-Assesment:
 
@@ -11,13 +15,11 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 
 ## [Artifact 1: Software Design and Engineering](Engineering.md)
-
 ### [Narrative](https://docs.google.com/document/d/1-sVM5UqeYbytaSxauqQEcnBLY51JZtqr/edit?usp=sharing&ouid=114962371169660708666&rtpof=true&sd=true)
         
              
 
 ## [Artifact 2: Algorithms and Datastructures](Algorithms.md)
-
 ### [Narrative](https://docs.google.com/document/d/1NSoZREICZDcPIcjU1PmuWKeQBmi3bMAs/edit?usp=sharing&ouid=114962371169660708666&rtpof=true&sd=true)
 
 
