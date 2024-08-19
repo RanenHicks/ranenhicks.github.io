@@ -2,7 +2,8 @@
 Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contains courswork from my Computer Science Capstone at SNHU.
 
 # Navigate:
-### [Professional Self-Assesment](#professionalself-assesment)
+### [Professional Self-Assesment](#professional-self-assesment-1)
+### [Code Review](#codereview)
 
 ## Professional Self-Assesment:
 
