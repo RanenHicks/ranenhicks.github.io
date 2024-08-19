@@ -18,9 +18,10 @@
 * [Back to Top](#dogjava-1)
 * [Monkey.java](#monkeyjava-1)
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 # Old Artifact:
 
+[Back to Navigate](#click-to-navigate)
 ### Driver.java
 ```java
 import java.util.ArrayList;
@@ -396,7 +397,7 @@ public class Driver {
 }
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ### RescueAnimal.java
 ```java
 
@@ -526,7 +527,7 @@ public class RescueAnimal {
 }
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ### Dog.java
 ```java
 
@@ -565,7 +566,7 @@ public class Dog extends RescueAnimal {
 }
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ### Monkey.java
 ```java
 
@@ -647,10 +648,10 @@ public class Monkey extends RescueAnimal {
 	}
 }
 ```
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 # New Artifact:
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ### Driver.java
 ```java
 /*
@@ -1337,7 +1338,7 @@ class newKeyFunction {
 }
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ### RescueAnimal.java
 ```java
 
@@ -1465,7 +1466,7 @@ public class RescueAnimal {
 }
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ### Dog.java
 ```java
 
@@ -1504,7 +1505,7 @@ public class Dog extends RescueAnimal {
 }
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ### Monkey.java
 ```java
 
