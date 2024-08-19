@@ -19,6 +19,7 @@ Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contain
 
 
 ## [Artifact 3: Databases](Databases.md)
+### [Narrative](https://docs.google.com/document/d/1i40NuZvJ8LBNT6MIDEk0djsgqMlYcoq4/edit?usp=sharing&ouid=114962371169660708666&rtpof=true&sd=true)
 
 ## [References Used to Make this ePortfolio](https://docs.google.com/document/d/10tcO9LBiJUnxnEvLL6yUBRigKrY8qpbuSsRe_rvs95M/edit?usp=sharing)
 
