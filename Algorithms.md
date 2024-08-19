@@ -3,19 +3,21 @@
 
 # Algorithms and Data Structures
 
+## FYI: In the repository you will see 2 files for the IT-145 artifact. One is the original artifact, and the other has src files in it so that it can be run once downloaded
+
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Algorithms%20and%20Data%20Structures)
 
 # Click to Navigate:
 ## [Old Artifact (IT-145 Artifact Without Enchancements)](#old-artifact)
 * [Driver.java](#driverjava)
 * [RescueAnimal.java](#rescueanimaljava)
-* [Back to Top](#dogjava)
+* [Dog.java](#dogjava)
 * [Monkey.java](#monkeyjava)
 
 ## [New Artifact (CS-499 Algorithms and Data Structures Enhancement)](#new-artifact)
 * [Driver.java](#driverjava-1)
 * [RescueAnimal.java](#rescueanimaljava-1)
-* [Back to Top](#dogjava-1)
+* [Dog.java](#dogjava-1)
 * [Monkey.java](#monkeyjava-1)
 
 [Back to Navigate](#click-to-navigate)
