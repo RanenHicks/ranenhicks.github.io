@@ -1,7 +1,7 @@
 <!-- (Github basic writing and formatting syntax, n.d.; Mendelssohn, 2022) -->
 Hello, my name is Ranen Hicks and this is my ePortfolio that (currently) contains courswork from my Computer Science Capstone at SNHU.
 
-# Navigate:
+# Click to Navigate:
 * ### [Professional Self-Assesment](#professional-self-assesment-1)
 * ### [Code Review](#code-review-1)
 * ### [Artifact 1](#artifact-1-software-design-and-engineering)
