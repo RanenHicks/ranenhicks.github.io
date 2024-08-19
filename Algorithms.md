@@ -3,8 +3,6 @@
 
 # Algorithms and Data Structures
 
-## FYI: In the repository you will see 2 files for the IT-145 artifact. One is the original artifact, and the other has src files in it so that it can be run once downloaded
-
 ## [See the Artifacts in the Repository](https://github.com/RanenHicks/ranenhicks.github.io/tree/main/Algorithms%20and%20Data%20Structures)
 
 # Click to Navigate:
