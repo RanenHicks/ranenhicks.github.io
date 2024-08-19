@@ -334,7 +334,6 @@ class AppointmentServiceTest {
 }
 ```
 
-[Back to Navigate](#click-to-navigate)
 ## Contact Service:
 
 [Back to Navigate](#click-to-navigate)
@@ -851,7 +850,6 @@ class ContactServiceTest {
 }
 ```
 
-[Back to Navigate](#click-to-navigate)
 ## Task Service:
 
 [Back to Navigate](#click-to-navigate)
@@ -1559,7 +1557,6 @@ if __name__== '__main__':
     unittest.main()
 ```
 
-[Back to Navigate](#click-to-navigate)
 ## Contact Service
 
 [Back to Navigate](#click-to-navigate)
@@ -2061,7 +2058,6 @@ if __name__== '__main__':
     unittest.main()
 ```
 
-[Back to Navigate](#click-to-navigate)
 ## Task Service
 
 [Back to Navigate](#click-to-navigate)
