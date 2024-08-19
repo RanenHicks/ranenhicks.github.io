@@ -25,7 +25,7 @@ Thank you all for your time,
 
 Ranen Hicks  
 
-### [Reference Page For Professional Self-Assessment](https://docs.google.com/document/d/1fl52GXeYqQgsa4jrM2z2oZ4qPOav9SEk1B3g11arRhw/edit?usp=sharing)
+### [Reference Page For Professional Self-Assessment]([https://docs.google.com/document/d/1fl52GXeYqQgsa4jrM2z2oZ4qPOav9SEk1B3g11arRhw/edit?usp=sharing](https://docs.google.com/document/d/1Lgj8iI3fA0mgW0yeXAiHmN5wV0N-3Dea/edit?usp=sharing&ouid=114962371169660708666&rtpof=true&sd=true))
 
  
 [Back to Navigate](#click-to-navigate)
