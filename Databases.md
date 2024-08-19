@@ -16,7 +16,7 @@
 # Old Artifact:
 
 [Back to Top](#click-to-navigate)
-## RanenHicksProjectTwo.py
+## ProjectTwoRanenHicks.py
 
 ```python
 from pymongo import MongoClient
