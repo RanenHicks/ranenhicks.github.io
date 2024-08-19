@@ -20,10 +20,10 @@
 * [settings.py](#settingspy)
 * [urls.py (in /CS499DatabasesRanenHicks)](#urlspy-in-cs499databasesranenhicks)
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 # Old Artifact:
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## ProjectTwoRanenHicks.py
 
 ```python
@@ -97,7 +97,7 @@ class AnimalShelter(object):
             return 0
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## ProjectTwoDashboard - Ranen Hicks.ipynb
 
 ```python
@@ -344,10 +344,10 @@ def update_map(viewData, index):
 
 app.run_server(debug=True)
 ```
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 # New Artifact:
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## ProjectTwoRanenHicks.py
 ```python
 from pymongo import MongoClient
@@ -422,7 +422,7 @@ class AnimalShelter(object):
             return 0
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## UpdateController.py:
 ```python
 from ProjectTwoRanenHicks import AnimalShelter
@@ -558,7 +558,7 @@ def inputUpdate():
 inputUpdate()
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## models.py
 ```python
 from django.db import models
@@ -584,7 +584,7 @@ class AnimalModel(models.Model):
     age_upon_outcome_in_weeks =  models.CharField(max_length = 100)
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## views.py
 ```python
 from django.shortcuts import render
@@ -594,7 +594,7 @@ def showLink(request):
     return render(request, "templates/homepage.html")
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## urls.py(in /database)
 ```python
 from django.urls import path
@@ -607,7 +607,7 @@ urlpatterns = [
 ]
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## citations.py
 ```python
 # Author: Ranen Hicks
@@ -677,7 +677,7 @@ urlpatterns = [
 # Writing your first Django app, part 1. (n.d.). Django. https://docs.djangoproject.com/en/5.1/intro/tutorial01/
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## settings.py
 ```python
 """
@@ -830,7 +830,7 @@ DYNAMIC_DATATB = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ```
 
-[Back to Top](#click-to-navigate)
+[Back to Navigate](#click-to-navigate)
 ## urls.py (in /CS499DatabasesRanenHicks):
 ```python
 """
